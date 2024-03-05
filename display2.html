@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Page</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>Your name is: <span id="displayName"></span></p>
+
+    <script>
+        var storedName = localStorage.getItem("userName");
+        if (storedName) {
+            document.getElementById("displayName").textContent = storedName;
+        } else {
+            document.getElementById("displayName").textContent = "Name not found";
+        }
+    </script>
+</body>
+</html>
