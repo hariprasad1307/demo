@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form id="signupForm" class="form">
+            <h1>Sign Up</h1>
+            <div class="form-group">
+                <label for="signupName">Name:</label>
+                <input type="text" id="signupName" required>
+            </div>
+            <div class="form-group">
+                <label for="signupGender">Gender:</label>
+                <select id="signupGender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="signupPhoneNumber">Phone Number:</label>
+                <input type="tel" id="signupPhoneNumber" pattern="[0-9]{10}" required>
+                <small>Enter a 10-digit phone number.</small>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" required><br>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Set Password:</label>
+                <input type="password" id="signupPassword" required>
+                <button type="button" onclick="togglePassword('signupPassword')">Show Password</button><br>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" required>
+                <button type="button" onclick="togglePassword('confirmPassword')">Show Password</button>
+            </div>
+            <button type="button" onclick="signup()">Sign Up</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Wrap your script in a window load event listener
+        window.addEventListener("load", function() {
+            // Add event listeners for each "Show Password" button
+            document.getElementById("toggleSignupPassword").addEventListener("click", function() {
+                togglePassword("signupPassword");
+            });
+
+            document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
+                togglePassword("confirmPassword");
+            });
+        });
+        
+        // Modify the togglePassword function to accept the ID parameter
+        function togglePassword(passwordFieldId) {
+            var passwordField = document.getElementById(passwordFieldId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
