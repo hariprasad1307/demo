@@ -14,7 +14,7 @@ function signup() {
     let password = document.getEleme0ntById("signupPassword").value;
     let otp=Math.floor(Math.random()*10000);
         Email.send({
-            SecureToken : "137c267c-7fc5-406f-9a0f-3ca1a422f87b",
+            SecureToken :"137c267c-7fc5-406f-9a0f-3ca1a422f87b",
             To : email.value,
             From : "hariprasad13072005@gmail.com",
             Subject : "This is the subject",
